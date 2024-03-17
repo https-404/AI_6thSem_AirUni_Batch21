@@ -61,16 +61,20 @@ class QueueProblem(SearchProblem):
     def cost(self, state, action, state2):
         return 1
 
-initial_state = graph_states[6]
-final_state = graph_states[9] 
-problem = QueueProblem(initial_state, final_state, AdjecencyInfo)
-result = astar(problem)
+def main():
+    initial_state = graph_states[6]
+    final_state = graph_states[9] 
+    problem = QueueProblem(initial_state, final_state, AdjecencyInfo)
+    result = astar(problem)
 
-if result:
-    print("Path found:")
-    for action, state in result.path():
-        print(f"Action: {action}, State: {state}")
+    if result:
+        print("Path found:")
+        for action, state in result.path():
+            print(f"Action: {action}, State: {state}")
 
-    print(f"\nNet Cost: {result.cost}")
-else:
-    print("No path found")
+        print(f"\nNet Cost: {result.cost}")
+    else:
+        print("No path found")
+
+if __name__ == "__main__":
+    main()
